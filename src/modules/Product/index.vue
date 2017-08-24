@@ -18,7 +18,7 @@
       label="名称"
       width="180">
       <template scope="scope">
-          <p>{{ scope.row.pName }}</p>
+          <p>{{ scope.row.pname }}</p>
       </template>
     </el-table-column>
 
@@ -26,7 +26,7 @@
       label="分类"
       width="80">
       <template scope="scope">
-        <p>{{ scope.row.class }}</p>
+        <p>{{ scope.row.classid }}</p>
       </template>
     </el-table-column>
     <el-table-column
@@ -41,7 +41,7 @@
       label="数量"
       width="80">
       <template scope="scope">
-        <p>{{ scope.row.cont }}</p>
+        <p>{{ scope.row.totalnumber }}</p>
       </template>
     </el-table-column>
 
@@ -61,46 +61,26 @@
 </template>
 
 <script>
+  import {mapGetters,mapActions} from "vuex"
   export default {
-    data() {
-      return {
-        tableData: [{
-          pid:2,
-          pName: '商品1',
-          price: '2000',
-          class:"水果",
-          cont:22,
-          danwei:"个",
-          desc:"222",
-          imgUrl: '222'
-        },{
-          pid:2,
-          pName: '商品2',
-          price: '2000',
-          class:"水果",
-          cont:22,
-          danwei:"个",
-          desc:"222",
-          imgUrl: '222'
-        },{
-          pid:2,
-          pName: '商品3',
-          price: '2000',
-          class:"水果",
-          cont:22,
-          danwei:"个",
-          desc:"222",
-          imgUrl: '222'
-        }]
-      }
+    computed:{
+      ...mapGetters({
+        "tableData":"product/tabData"
+      })
     },
     methods: {
+      ...mapActions({
+        "getList":"product/getList"
+      }),
       handleEdit(index, row) {
         console.log(index, row);
       },
       handleDelete(index, row) {
         console.log(index, row);
       }
+    },
+    mounted(){
+      this.getList({linenumber:5,pageNum:0})
     }
   }
 </script>
