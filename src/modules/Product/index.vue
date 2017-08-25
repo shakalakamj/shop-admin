@@ -80,7 +80,7 @@
       }
     },
     mounted(){
-      this.getList({linenumber:5,pageNum:0})
+      this.getList({linenumber:10,pageNum:0})
     }
   }
 </script>
