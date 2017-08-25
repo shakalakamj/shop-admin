@@ -4,18 +4,15 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
 
-import product from "./modules/product"
+import product from './modules/product'
 
-//使用vuex插件
-Vue.use(Vuex);
-
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  modules:{
+  'modules': {
     product
   }
-});
-
+})
 
 export default store
 

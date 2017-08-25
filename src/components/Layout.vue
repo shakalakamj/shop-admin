@@ -3,9 +3,7 @@
     <v-header></v-header>
     <v-side-menu></v-side-menu>
     <div class="content">
-      <transition name="move" mode="out-in">
         <router-view></router-view>
-      </transition>
     </div>
   </div>
 </template>
